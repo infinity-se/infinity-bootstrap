@@ -1,0 +1,16 @@
+{
+    "name": "infinity/infinity-bootstrap",
+    "description": "ZF2 Twitter Bootstrap module for Infinity",
+    "license": "BSD-3-Clause",
+    "require": {
+        "infinity/infinity-base": "dev-master",
+        "spoonx/sxbootstrap": "1.*",
+        "leafo/lessphp": "0.*",
+        "twitter/bootstrap": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "InfinityBootstrap\\": "module/InfinityBootstrap/src/"
+        }
+    }
+}

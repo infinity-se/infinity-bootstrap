@@ -1,0 +1,20 @@
+<?php echo $this->doctype() ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headLink() ?>
+        <?php echo $this->headScript() ?>
+    </head>
+    <body>
+        <?php /*echo $this->navigation('default_navigation')->bar(null, null, null, true)*/ ?>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <?php echo $this->messages() ?>
+                <?php echo $this->content ?>
+            </div>
+        </div>
+        <?php echo $this->inlineScript() ?>
+	</body>
+</html>
