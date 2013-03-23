@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-0": {
-            "InfinityBootstrap\\": "module/InfinityBootstrap/src/"
+            "InfinityBootstrap\\": "src/"
         }
     }
 }
