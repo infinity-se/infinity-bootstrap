@@ -6,7 +6,6 @@
         "infinity/infinity-base": "0.*",
         "spoonx/sxbootstrap": "1.*",
         "leafo/lessphp": "0.*",
-        "twitter/bootstrap": "2.*"
     },
     "autoload": {
         "psr-0": {
