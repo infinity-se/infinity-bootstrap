@@ -6,30 +6,36 @@ return array(
     'twitter_bootstrap' => array(
         'use_lessphp' => true,
     ),
-    'asset_manager' => array(
+    'asset_manager'     => array(
         'resolver_configs' => array(
             'collections' => array(
-                'css/master.css' => array(
-                    'css/bootstrap.css',
+                'css/master.css'    => array(
+                    'less/bootstrap.less',
+                    'css/bootstrap-responsive-pre.css',
+                    'less/bootstrap-responsive.less',
                 ),
-                'js/master.js'   => array(
+                'js/master.js'      => array(
                     'js/jquery.js',
                     'js/bootstrap.js',
                 ),
-                'css/bootstrap.css' => array(
-                    'less/bootstrap.less',
-                    'less/bootstrap-responsive.less',
-                )
             ),
             'map'         => array(
-                'js/html5.js'                        => $vendorPath . '/afarkas/html5shiv/html5shiv-printshiv.js',
-                'js/jquery.js'                       => $vendorPath . '/jquery/jquery/jquery-1.9.1.js',
-                'less/bootstrap.less'                => $vendorPath . '/twitter/bootstrap/less/bootstrap.less',
-                'less/bootstrap-responsive.less'     => $vendorPath . '/twitter/bootstrap/less/responsive.less',
+                'js/html5.js'                      => $vendorPath . '/afarkas/html5shiv/html5shiv-printshiv.js',
+                'js/jquery.js'                     => $vendorPath . '/jquery/jquery/jquery-1.9.1.js',
+                'less/bootstrap.less'              => $vendorPath . '/twitter/bootstrap/less/bootstrap.less',
+                'less/bootstrap-responsive.less'   => $vendorPath . '/twitter/bootstrap/less/responsive.less',
+                'css/bootstrap-responsive-pre.css' => __DIR__ . '/../assets/css/bootstrap-responsive-pre.css',
+            ),
+        ),
+        'filters'          => array(
+            'css/master.css' => array(
+                array(
+                    'service' => 'SxBootstrap\Service\BootstrapFilter',
+                ),
             ),
         ),
     ),
-    'view_manager'  => array(
+    'view_manager'      => array(
         'template_map'        => array(
             'layout/bootstrap' => __DIR__ . '/../view/layout/bootstrap.phtml',
         ),
@@ -38,12 +44,12 @@ return array(
         ),
         'layout'              => 'layout/bootstrap',
     ),
-    'view_helpers' => array(
-        'aliases' => array(
+    'view_helpers'      => array(
+        'aliases'    => array(
             'messages' => 'sxbFlashMessenger',
         ),
         'invokables' => array(
-            'form' => 'InfinityBootstrap\Form\View\Helper\Form',
+            'form'    => 'InfinityBootstrap\Form\View\Helper\Form',
             'formRow' => 'InfinityBootstrap\Form\View\Helper\FormRow',
         ),
     ),
