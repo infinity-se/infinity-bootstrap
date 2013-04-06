@@ -20,8 +20,8 @@ return array(
                 ),
             ),
             'map'         => array(
-                'js/html5.js'                      => $vendorPath . '/afarkas/html5shiv/html5shiv-printshiv.js',
-                'js/jquery.js'                     => $vendorPath . '/jquery/jquery/jquery-1.9.1.js',
+                'js/html5.js'                      => $vendorPath . '/components/html5shiv/dist/html5shiv-printshiv.js',
+                'js/jquery.js'                     => $vendorPath . '/components/jquery/jquery.js',
                 'less/bootstrap.less'              => $vendorPath . '/twitter/bootstrap/less/bootstrap.less',
                 'less/bootstrap-responsive.less'   => $vendorPath . '/twitter/bootstrap/less/responsive.less',
                 'css/bootstrap-responsive-pre.css' => __DIR__ . '/../assets/css/bootstrap-responsive-pre.css',
