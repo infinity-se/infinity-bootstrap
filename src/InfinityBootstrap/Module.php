@@ -18,6 +18,12 @@ class Module implements AutoloaderProviderInterface, BootstrapListenerInterface,
         // Attach view rendering strategy
         $listener = new Mvc\View\Http\ViewRenderingStrategy();
         $application->getEventManager()->attachAggregate($listener);
+
+        // Attach new navigation helper
+        $pluginManager = $application->getServiceManager()
+                ->get('ViewHelperManager')->get('Navigation')
+                ->getPluginManager();
+        $pluginManager->setInvokableClass('bar', '\InfinityBootstrap\View\Helper\Navigation\Bar');
     }
 
     public function getAutoloaderConfig()

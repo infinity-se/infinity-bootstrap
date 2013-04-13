@@ -4,7 +4,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "infinity/infinity-base": "0.*",
-        "component/jquery": "1.*",
+        "components/jquery": "1.*",
         "spoonx/sxbootstrap": "1.*",
         "leafo/lessphp": "0.*"
     },

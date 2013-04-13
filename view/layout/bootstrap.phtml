@@ -8,29 +8,7 @@
         <?php echo $this->headScript() ?>
     </head>
     <body>
-        <div class="navbar navbar-fixed-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <div class="nav-collapse collapse">
-                        <a class="brand">
-                            <?php if ($this->brand['icon']): ?>
-                            <i class="icon-<?php echo $this->escapeHtmlAttr($this->brand['icon']) ?> icon-white"></i>
-                            <?php endif ?>
-                            <?php echo $this->escapeHtml($this->brand['text']) ?>
-                        </a>
-                        <?php echo $this->navigation('navigation')->menu()
-                                ->renderMenu(null, array(
-                                    'ulClass' => 'nav'
-                                )) ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php echo $this->navigation('navigation')->bar() ?>
         <div class="container-fluid">
             <?php echo $this->messages() ?>
             <div class="row-fluid">
