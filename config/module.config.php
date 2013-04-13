@@ -28,7 +28,7 @@ return array(
                 ),
             ),
             'map'         => array(
-                'js/html5.js'                      => 'https://github.com/aFarkas/html5shiv/blob/3.6.2/src/html5shiv-printshiv.js',
+                'js/html5.js'                      => 'https://raw.github.com/aFarkas/html5shiv/3.6.2/src/html5shiv-printshiv.js',
                 'js/jquery.js'                     => 'https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js',
                 'less/bootstrap.less'              => $vendorPath . '/twitter/bootstrap/less/bootstrap.less',
                 'less/bootstrap-responsive.less'   => $vendorPath . '/twitter/bootstrap/less/responsive.less',
