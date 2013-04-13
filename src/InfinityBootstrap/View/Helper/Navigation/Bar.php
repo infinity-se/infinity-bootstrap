@@ -40,15 +40,20 @@ class Bar extends AbstractHelper
         if (null !== $container) {
             $this->setContainer($container);
         }
+        
+        // Load brand
         $container = $this->getContainer();
+        $brand     = $container->findOneBy('class', 'brand');
+        if ($brand) {
+            $container->removePage($brand);
+        }
 
         // Render navigation bar
         $viewModel            = new ViewModel();
-        $config               = $this->getConfig();
-        $viewModel->brand     = $config['brand'];
+        $viewModel->brand     = $brand;
         $viewModel->container = $container;
 
-        $viewModel->setTemplate('infinity-bootstrap/navigation/bar');
+        $viewModel->setTemplate('helper/navigation/bar');
         return $this->getView()->render($viewModel);
     }
 

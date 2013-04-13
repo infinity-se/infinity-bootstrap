@@ -61,10 +61,6 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
             return;
         }
 
-        // Load config
-        $configuration = $serviceManager->get('Configuration');
-        $options       = $configuration['infinity']['bootstrap'];
-
         // Set base path
         $basePath = $renderer->basePath();
 
@@ -93,9 +89,6 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
         // Add inline script
         $renderer->inlineScript()
                 ->appendFile($basePath . '/js/master.js');
-
-        // Set brand
-        $renderer->layout()->brand = $options['brand'];
     }
 
 }

@@ -5,10 +5,6 @@ $vendorPath = realpath('vendor');
 return array(
     'infinity' => array(
         'bootstrap' => array(
-            'brand' => array(
-                'text' => 'Infinity Software & Engineering',
-                'icon' => 'th-large',
-            ),
         ),
     ),
     'twitter_bootstrap' => array(
@@ -63,9 +59,11 @@ return array(
     ),
     'navigation' => array(
         'default' => array(
-            array(
-                'label' => 'Home',
+            'brand' => array(
+                'label' => 'Infinity Software & Engineering',
+                'class' => 'brand',
                 'route' => 'home',
+                'icon'  => 'home',
             ),
         ),
     ),

@@ -7,11 +7,11 @@
                 <span class="icon-bar"></span>
             </a>
             <?php if ($this->brand): ?>
-            <a class="brand">
-                <?php if ($this->brand['icon']): ?>
-                <i class="icon-<?php echo $this->escapeHtmlAttr($this->brand['icon']) ?> icon-white"></i>
+            <a class="brand" href="<?php echo $this->escapeHtmlAttr($this->brand->getHref()) ?>">
+                <?php if (isset($this->brand->icon)): ?>
+                <i class="icon-<?php echo $this->escapeHtmlAttr($this->brand->icon) ?> icon-white"></i>
                 <?php endif ?>
-                <?php echo $this->escapeHtml($this->brand['text']) ?>
+                <?php echo $this->escapeHtml($this->brand->getLabel()) ?>
             </a>
             <?php endif ?>
             <?php if ($this->container): ?>
@@ -36,6 +36,9 @@
                         <a href="<?php echo $this->escapeHtmlAttr($page->getHref()) ?>"
                            <?php echo $page->hasPages() ? 'class="dropdown-toggle" data-toggle="dropdown"' : null ?>
                            >
+                            <?php if (isset($page->icon)): ?>
+                            <i class="icon-white icon-<?php echo $this->escapeHtmlAttr($page->icon) ?>"></i>
+                            <?php endif ?>
                             <?php echo $this->escapeHtml($page->getLabel()) ?>
                             <?php if ($page->hasPages()): ?>
                             <b class="caret"></b>
