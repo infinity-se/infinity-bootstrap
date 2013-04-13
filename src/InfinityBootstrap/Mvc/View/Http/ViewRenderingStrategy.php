@@ -11,6 +11,7 @@ use Zend\View\Renderer\PhpRenderer;
 
 class ViewRenderingStrategy implements ListenerAggregateInterface
 {
+
     /**
      * @var array
      */
@@ -23,7 +24,7 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
     {
         $this->_listeners[] = $eventManager->attach(
                 'render', array($this, 'load'), 1000
-                );
+        );
     }
 
     /**
@@ -60,20 +61,10 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
             return;
         }
 
-        // Load globals
-        $this->_loadGlobals($renderer);
+        // Load config
+        $configuration = $serviceManager->get('Configuration');
+        $options       = $configuration['infinity']['bootstrap'];
 
-        // Register navigation helpers
-        $this->_loadNavigation($serviceManager);
-    }
-
-    /**
-     * Load global variables
-     *
-     * @param PhpRenderer $renderer
-     */
-    protected function _loadGlobals($renderer)
-    {
         // Set base path
         $basePath = $renderer->basePath();
 
@@ -84,44 +75,27 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
 
         // Add head links
         $renderer->headLink(
-                array(
-                    'rel'  => 'shortcut icon',
-                    'type' => 'image/vnd.microsoft.icon',
-                    'href' => $basePath . '/favicon.ico'
-                    )
+                        array(
+                            'rel'  => 'shortcut icon',
+                            'type' => 'image/vnd.microsoft.icon',
+                            'href' => $basePath . '/favicon.ico'
+                        )
                 )
                 ->appendStylesheet($basePath . '/css/master.css');
 
         // Add head scripts
         $renderer->headScript()
                 ->appendFile(
-                        $basePath . '/js/html5.js',
-                        'text/javascript',
+                        $basePath . '/js/html5.js', 'text/javascript',
                         array('conditional' => 'lt IE 9')
-                        );
+        );
 
         // Add inline script
         $renderer->inlineScript()
                 ->appendFile($basePath . '/js/master.js');
+
+        // Set brand
+        $renderer->layout()->brand = $options['brand'];
     }
 
-    /**
-     * Load navigation
-     *
-     * @param ServiceLocatorInterface $serviceManager
-     */
-    protected function _loadNavigation(ServiceLocatorInterface $serviceManager)
-    {
-        return;
-        // Load view helper manager
-        $helperManager = $serviceManager->get('view_helper_manager');
-        if (!$helperManager) {
-            return;
-        }
-
-        // Register navigation plugin manager
-        $navigationManager = $helperManager->get('navigation');
-        $pluginManager     = new PluginManager();
-        $navigationManager->setPluginManager($pluginManager);
-    }
 }

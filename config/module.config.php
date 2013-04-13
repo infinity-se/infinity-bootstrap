@@ -3,6 +3,14 @@
 // Cache vendor path
 $vendorPath = realpath('vendor');
 return array(
+    'infinity' => array(
+        'bootstrap' => array(
+            'brand' => array(
+                'text' => 'Infinity Software & Engineering',
+                'icon' => 'th-large',
+            ),
+        ),
+    ),
     'twitter_bootstrap' => array(
         'use_lessphp' => true,
     ),
@@ -51,6 +59,19 @@ return array(
         'invokables' => array(
             'form'    => 'InfinityBootstrap\Form\View\Helper\Form',
             'formRow' => 'InfinityBootstrap\Form\View\Helper\FormRow',
+        ),
+    ),
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'Home',
+                'route' => 'home',
+            ),
+        ),
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ),
     ),
 );
