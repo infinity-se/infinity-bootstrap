@@ -82,8 +82,7 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
         // Add head scripts
         $renderer->headScript()
                 ->appendFile(
-                        $basePath . '/js/html5.js', 'text/javascript',
-                        array('conditional' => 'lt IE 9')
+                        $basePath . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9')
         );
 
         // Add inline script
@@ -92,3 +91,4 @@ class ViewRenderingStrategy implements ListenerAggregateInterface
     }
 
 }
+

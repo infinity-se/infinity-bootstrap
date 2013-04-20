@@ -31,7 +31,7 @@ class Bar extends AbstractHelper
 
     /**
      * Renders navigation bar
-     * 
+     *
      * return string
      */
     public function render($container = null)
@@ -40,7 +40,7 @@ class Bar extends AbstractHelper
         if (null !== $container) {
             $this->setContainer($container);
         }
-        
+
         // Load brand
         $container = $this->getContainer();
         $brand     = $container->findOneBy('class', 'brand');
@@ -69,3 +69,4 @@ class Bar extends AbstractHelper
     }
 
 }
+
