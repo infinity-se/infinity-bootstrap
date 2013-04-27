@@ -6,8 +6,9 @@ use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\DependencyIndicatorInterface;
 
-class Module implements AutoloaderProviderInterface, BootstrapListenerInterface, ConfigProviderInterface
+class Module implements AutoloaderProviderInterface, BootstrapListenerInterface, ConfigProviderInterface, DependencyIndicatorInterface
 {
 
     public function onBootstrap(EventInterface $event)
@@ -42,4 +43,10 @@ class Module implements AutoloaderProviderInterface, BootstrapListenerInterface,
         return include __DIR__ . '/../../config/module.config.php';
     }
 
+    public function getModuleDependencies()
+    {
+        return array('InfinityBase', 'SxBootstrap');
+    }
+
 }
+
