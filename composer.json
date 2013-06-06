@@ -3,7 +3,6 @@
     "description": "ZF2 Twitter Bootstrap module for Infinity",
     "license": "BSD-3-Clause",
     "require": {
-        "infinity/infinity-base": "0.*",
         "spoonx/sxbootstrap": "1.*",
         "leafo/lessphp": "0.*"
     },
